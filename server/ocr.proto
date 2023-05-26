@@ -1,0 +1,25 @@
+syntax = "proto3"; //说明使用proto3语法定义协议
+
+package ocr;
+service Ocr {
+    // 我们rpc服务的名字
+    // 后面
+    // 服务端 会用到 <ComputeServicer>
+    // 客户端 会用到 <ComputeStub>
+    rpc CallOcr (OcrRequest) returns (OcrReply) {}
+    // SayHello 调用的方法
+    // HelloRequest 客户端输入的消息（对象）
+    // returns 服务端
+    // HelloReply 服务端 返回的消息（对象）
+}
+
+message OcrRequest {
+    //这里应该是图片的数据格式
+    bytes img = 1;
+
+}
+
+message OcrReply {
+    //定义服务端消息内容，json对象
+    string result = 1;
+}
